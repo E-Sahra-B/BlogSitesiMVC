@@ -1,0 +1,12 @@
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\bin\Debug\net5.0\Entity.deps.json
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\bin\Debug\net5.0\Entity.dll
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\bin\Debug\net5.0\ref\Entity.dll
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\bin\Debug\net5.0\Entity.pdb
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.csproj.AssemblyReference.cache
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.AssemblyInfoInputs.cache
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.AssemblyInfo.cs
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.csproj.CoreCompileInputs.cache
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.dll
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\ref\Entity.dll
+C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.pdb

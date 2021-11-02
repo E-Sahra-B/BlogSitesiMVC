@@ -1,0 +1,34 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "BlogAdd";
+}
+<h1>Yeni Blog Girişi</h1>
+<br />
+@using (Html.BeginForm("BlogAdd", "Blog","Writer", FormMethod.Post))
+{
+    <label>Blog Başlığı</label>
+    <input type="text" asp-for="BlogTitle" class="form-control" />
+    <span asp-validation-for="BlogTitle" class="text-danger"></span>
+    <br />
+    <label>Blog Görseli</label>
+    <input type="text" asp-for="BlogImage" class="form-control" />
+    <span asp-validation-for="BlogImage" class="text-danger"></span>
+    <br />
+    <label>Blog Küçük Görsel</label>
+    <input type="text" asp-for="BlogThumbnailImage" class="form-control" />
+    <br />
+    <label>Blog Kategorisi</label>
+    <select asp-for="CategoryID" asp-items="ViewBag.cv as List<SelectListItem>" class="form-control">
+        <option></option>
+    </select>
+    <br />
+    <label>Blog İçeriği</label>
+    <textarea asp-for="BlogContent" class="form-control" rows="15"></textarea>
+    <span asp-validation-for="BlogContent" class="text-danger"></span>
+    <br />
+    <button class="btn btn-primary">Yazıyı Kaydet</button>
+}
+@*<form method="post" asp-controller="Blog" asp-action="BlogAdd"></form>*@
+
+
+
