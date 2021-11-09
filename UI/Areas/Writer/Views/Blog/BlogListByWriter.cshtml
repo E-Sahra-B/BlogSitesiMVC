@@ -15,11 +15,34 @@
     </tr>
     @foreach (var item in Model)
     {
+
         <tr>
             <th>@item.BlogID</th>
             <td>@item.BlogTitle</td>
             <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
-            <td>@item.Category.CategoryName</td>
+
+            <td>
+                @if (item.Category.CategoryName == "Tiyatro")
+                {
+                    <p class="badge badge-warning">Tiyatro</p>
+                }
+                @if (item.Category.CategoryName == "Yazılım")
+                {
+                    <p class="badge badge-success">Yazılım</p>
+                }
+                @if (item.Category.CategoryName == "Teknoloji")
+                {
+                    <p class="badge badge-primary">Teknoloji</p>
+                }
+                @if (item.Category.CategoryName == "Oyun")
+                {
+                    <p class="badge badge-secondary">Oyun</p>
+                }
+                @if (item.Category.CategoryName == "sinema")
+                {
+                    <p class="badge badge-info">sinema</p>
+                }
+            </td>
             <td>
                 @if (@item.BlogStatus)
                 {
@@ -30,8 +53,8 @@
                     <p class="badge badge-secondary">Pasif</p>
                 }
             </td>
-            <td><a href="/Writer/Blog/BlogDelete/@item.BlogID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Writer/Blog/BlogEdit/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+            <td><a href="/Writer/Blog/BlogDelete?id=@item.BlogID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Writer/Blog/BlogEdit?id=@item.BlogID" class="btn btn-warning">Düzenle</a></td>
         </tr>
     }
 </table>

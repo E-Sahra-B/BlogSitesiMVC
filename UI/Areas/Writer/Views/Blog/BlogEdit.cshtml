@@ -4,7 +4,7 @@
 }
 <h1>Blog Düzenleme Sayfası</h1>
 <br />
-@using (Html.BeginForm("BlogEdit", "Blog","Writer", FormMethod.Post))
+@using (Html.BeginForm("BlogEdit", "Blog", "Writer", FormMethod.Post))
 {
     <label>Blog ID</label>
     <input type="text" asp-for="BlogID" class="form-control" />
@@ -28,4 +28,4 @@
     <br />
     <button class="btn btn-success">Güncelle</button>
 }
-@*<form method="post" asp-controller="Blog" asp-action="BlogEdit"></form>*@
+@*<form method="post" asp-controller="Blog" asp-action="BlogEdit" asp-area="Writer"></form>*@

@@ -12,10 +12,6 @@ namespace Business.Concrete
         {
             _writerDal = writerDal;
         }
-        //public void Add(Writer writer)
-        //{
-        //    _writerDal.Insert(writer);
-        //}
         public Writer GetByID(int id)
         {
             return _writerDal.GetByID(id);
@@ -23,6 +19,10 @@ namespace Business.Concrete
         public List<Writer> GetList()
         {
             return _writerDal.GetListAll();
+        }
+        public List<Writer> GetWriterById(int id)
+        {
+            return _writerDal.GetListAll(x=> x.WriterID==id);
         }
         public void TAdd(Writer t)
         {

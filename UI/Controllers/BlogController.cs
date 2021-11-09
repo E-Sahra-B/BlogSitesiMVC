@@ -28,11 +28,6 @@ namespace UI.Controllers
             var values = bm.GetBlogByID(id);
             return View(values);
         }
-        public IActionResult BlogDelete(int id)
-        {
-            var blogvalue = bm.GetByID(id);
-            bm.TDelete(blogvalue);
-            return RedirectToAction("BlogListByWriter");
-        }
+       
     }
 }

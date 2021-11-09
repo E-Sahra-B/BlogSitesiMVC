@@ -3,7 +3,6 @@ using Business.ValidationRules;
 using DataAccess.EntityFramework;
 using Entity.Concrete;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -12,8 +11,6 @@ using System.Linq;
 
 namespace UI.Areas.Writer.Controllers
 {
-    [AllowAnonymous]
-
     public class BlogController : WriterBaseController
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
@@ -75,12 +72,18 @@ namespace UI.Areas.Writer.Controllers
 
             p.BlogStatus = true;
             bm.TUpdate(p);
-            return RedirectToAction("BlogListByWriter","Blog","Writer");
+            return RedirectToAction("BlogListByWriter", "Blog", "Writer");
         }
         public IActionResult BlogListByWriter()
         {
             var values = bm.GetListWithCategoryByWriterBM(1);
             return View(values);
+        }
+        public IActionResult BlogDelete(int id)
+        {
+            var blogvalue = bm.GetByID(id);
+            bm.TDelete(blogvalue);
+            return RedirectToAction("BlogListByWriter", "Blog", "Writer");
         }
     }
 }

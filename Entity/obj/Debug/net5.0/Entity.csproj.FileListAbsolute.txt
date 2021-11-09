@@ -10,3 +10,15 @@ C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.csproj.Core
 C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.dll
 C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\ref\Entity.dll
 C:\MyProjects\VisualStudio\BlokSitesi\Entity\obj\Debug\net5.0\Entity.pdb
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\bin\Debug\net5.0\Entity.deps.json
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\bin\Debug\net5.0\Entity.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\bin\Debug\net5.0\ref\Entity.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\bin\Debug\net5.0\Entity.pdb
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.csproj.AssemblyReference.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.AssemblyInfoInputs.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.AssemblyInfo.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.csproj.CoreCompileInputs.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\ref\Entity.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Entity\obj\Debug\net5.0\Entity.pdb
