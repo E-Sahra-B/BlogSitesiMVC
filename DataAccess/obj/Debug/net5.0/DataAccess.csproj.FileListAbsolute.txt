@@ -28,6 +28,7 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfoInputs.cache
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.AssemblyInfo.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.csproj.CopyComplete
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\ref\DataAccess.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\DataAccess\obj\Debug\net5.0\DataAccess.pdb

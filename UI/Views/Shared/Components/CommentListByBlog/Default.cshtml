@@ -1,17 +1,25 @@
 ﻿@model IEnumerable<Comment>
 <div class="comment-top">
-    <h4>Yorumlar</h4>
-    @foreach (var item in Model)
+    @if (Model.Count() > 0)
     {
-        <div class="media">
-            <img src="~/CoreBlogTema/images/t2.jpg" alt="" class="img-fluid" />
+        <h4>Yorumlar</h4>
+        @foreach (var item in Model)
+        {
+            <div class="media">
+                <img src="~/CoreBlogTema/images/t2.jpg" alt="" class="img-fluid" />
 
-            <div class="media-body">
-                <h5 class="mt-0">@item.CommentUserName</h5>
-                <p>
-                   @item.CommentContent
-                </p>
+                <div class="media-body">
+                    <h5 class="mt-0">@item.CommentUserName</h5>
+                    <p>
+                        @item.CommentContent
+                    </p>
+                </div>
             </div>
-        </div>
+        }
+        <h4>Bir Yorum Bırak</h4>
     }
-    </div>
+    else
+    {
+        <h5 style="color: #01cd74">Hiç yorum bulunmamaktadır. İlk yorumu yapabilirsin.</h5>
+    }
+</div>

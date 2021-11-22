@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -35,6 +37,10 @@ namespace Business.Concrete
         public void TUpdate(Writer t)
         {
             _writerDal.Update(t);
+        }
+        public Writer TGetByFilter(Expression<Func<Writer, bool>> filter)
+        {
+            return _writerDal.GetByFilter(filter);
         }
     }
 }

@@ -37,6 +37,7 @@ namespace UI.Controllers
                 ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
                 await HttpContext.SignInAsync(principal);
                 return RedirectToAction("Index", "Dashboard", new { Area="Writer"});
+                //return RedirectToAction("Index", "Writer", new { Area="Writer"});
             }
             else
             {

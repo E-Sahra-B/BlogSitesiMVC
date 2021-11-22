@@ -27,7 +27,7 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.Gene
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.AssemblyInfoInputs.cache
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.AssemblyInfo.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.csproj.CoreCompileInputs.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.csproj.CopyComplete
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\ref\Business.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.pdb
-C:\MyProjects\VisualStudio\BlogSitesiMVC\Business\obj\Debug\net5.0\Business.csproj.CopyComplete

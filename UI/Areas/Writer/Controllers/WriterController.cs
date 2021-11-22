@@ -8,6 +8,7 @@ using Entity.Concrete;
 using UI.Areas.Writer.Models;
 using System.IO;
 using System;
+using System.Security.Claims;
 
 namespace UI.Areas.Writer.Controllers
 {
@@ -16,6 +17,9 @@ namespace UI.Areas.Writer.Controllers
         WriterManager wm = new WriterManager(new EfWriterRepository());
         public IActionResult Index()
         {
+            var mail = User.Identity.Name;
+            ViewBag.yazarmail = mail;
+            ViewBag.yazarismi = wm.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return View();
         }
         public IActionResult WriterProfile()
@@ -32,6 +36,9 @@ namespace UI.Areas.Writer.Controllers
         }
         public PartialViewResult WriterNavbarPartial()
         {
+            var mail = User.Identity.Name;
+            ViewBag.yazarmail = mail;
+            ViewBag.yazarismi = wm.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return PartialView();
         }
         public PartialViewResult WriterFooterPartial()
@@ -41,7 +48,9 @@ namespace UI.Areas.Writer.Controllers
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            var wv = wm.GetByID(1);
+            var usermail = User.Identity.Name;
+            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var wv = wm.GetByID(writerid);
             return View(wv);
         }
         [HttpPost]

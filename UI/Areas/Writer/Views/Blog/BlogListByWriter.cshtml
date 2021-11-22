@@ -12,50 +12,127 @@
         <th>Durumu</th>
         <th>Sil</th>
         <th>Düzenle</th>
+        <th>Aktif/Pasif</th>
     </tr>
     @foreach (var item in Model)
     {
 
-        <tr>
-            <th>@item.BlogID</th>
-            <td>@item.BlogTitle</td>
-            <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
+<tr>
+    <th>@item.BlogID</th>
+    <td>@item.BlogTitle</td>
+    <td>@(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))</td>
 
-            <td>
-                @if (item.Category.CategoryName == "Tiyatro")
-                {
-                    <p class="badge badge-warning">Tiyatro</p>
-                }
-                @if (item.Category.CategoryName == "Yazılım")
-                {
-                    <p class="badge badge-success">Yazılım</p>
-                }
-                @if (item.Category.CategoryName == "Teknoloji")
-                {
-                    <p class="badge badge-primary">Teknoloji</p>
-                }
-                @if (item.Category.CategoryName == "Oyun")
-                {
-                    <p class="badge badge-secondary">Oyun</p>
-                }
-                @if (item.Category.CategoryName == "sinema")
-                {
-                    <p class="badge badge-info">sinema</p>
-                }
-            </td>
-            <td>
-                @if (@item.BlogStatus)
-                {
-                    <p class="badge badge-success">Aktif</p>
-                }
-                else
-                {
-                    <p class="badge badge-secondary">Pasif</p>
-                }
-            </td>
-            <td><a href="/Writer/Blog/BlogDelete?id=@item.BlogID" class="btn btn-danger">Sil</a></td>
-            <td><a href="/Writer/Blog/BlogEdit?id=@item.BlogID" class="btn btn-warning">Düzenle</a></td>
-        </tr>
+    <td>
+        @if (item.Category.CategoryName == "Tiyatro")
+        {
+            <p class="badge badge-warning">Tiyatro</p>
+        }
+        @if (item.Category.CategoryName == "Yazılım")
+        {
+            <p class="badge badge-success">Yazılım</p>
+        }
+        @if (item.Category.CategoryName == "Teknoloji")
+        {
+            <p class="badge badge-primary">Teknoloji</p>
+        }
+        @if (item.Category.CategoryName == "Oyun")
+        {
+            <p class="badge badge-secondary">Oyun</p>
+        }
+        @if (item.Category.CategoryName == "sinema")
+        {
+            <p class="badge badge-info">sinema</p>
+        }
+    </td>
+    <td>
+        @if (@item.BlogStatus)
+        {
+            <p class="badge badge-success">Aktif</p>
+        }
+        else
+        {
+            <p class="badge badge-secondary">Pasif</p>
+        }
+    </td>
+    <td><a href="/Writer/Blog/BlogDelete?id=@item.BlogID" id="Sil_@item.BlogID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Writer/Blog/BlogEdit?id=@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+    <td>
+
+        @if (item.BlogStatus)
+        {
+            <a href="~/Writer/Blog/ChangeStatusBlog?id=@item.BlogID" id="Durum_@item.BlogID" class="btn btn-gradient-secondary">Pasif Yap</a> }
+        else
+        {
+            <a href="~/Writer/Blog/ChangeStatusBlog?id=@item.BlogID" id="Durum_@item.BlogID" class="btn btn-gradient-success">Aktif Yap</a>}
+
+    </td>
+    <script>
+                                    $('#Sil_@item.BlogID').click(function (e) {
+                                        e.preventDefault();
+                                        var linkURL = $(this).attr("href");
+                                        Swal.fire({
+                                            title: 'UYARI!',
+                                            text: "Blog yazısını silmek istediğinize emin misiniz?",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#5CBA6C',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Evet',
+                                            cancelButtonText: 'Hayır'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = linkURL;
+                                                Swal.fire(
+                                                    'Başarılı!',
+                                                    'Seçilen Blog Silindi .',
+                                                    'success'
+                                                )
+                                            }
+                                            else if (result.dismiss === Swal.DismissReason.cancel) {
+                                            }
+                                        })
+                                    });
+
+                    $('#Durum_@item.BlogID').click(function (e) {
+                                        e.preventDefault();
+                        var linkURL = $(this).attr("href");
+                        var deger = document.getElementById("Durum_@item.BlogID").textContent;
+                        var mesaj;
+                        var onayMesaji;
+                        if (deger == "Pasif Yap") {
+                            mesaj = "Blog yazısını pasif yapmak istediğinize emin misiniz ?";
+                            onayMesaji="Seçilen blog pasif yapıldı."
+                        }
+                        else if (deger) {
+                            mesaj = "Blog yazısını aktif yapmak istediğinize emin misiniz ?";
+                            onayMesaji="Seçilen blog aktif yapıldı."
+                        }
+                                        Swal.fire({
+                                            title: 'UYARI!',
+                                            text: mesaj,
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#5CBA6C',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Evet',
+                                            cancelButtonText: 'Hayır'
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                window.location.href = linkURL;
+                                                Swal.fire(
+                                                    'Başarılı!',
+                                                    onayMesaji,
+                                                    'success'
+                                                )
+                                            }
+                                            else if (result.dismiss === Swal.DismissReason.cancel) {
+                                            }
+                                        })
+                                    });
+    </script>
+</tr>
     }
 </table>
 <a href="/Writer/Blog/BlogAdd/" class="btn btn-primary">Yeni Blog Oluştur</a>

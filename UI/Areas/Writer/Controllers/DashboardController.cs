@@ -11,8 +11,12 @@ namespace UI.Areas.Writer.Controllers
         {
             BlogManager blogManager = new BlogManager(new EfBlogRepository());
             CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+            WriterManager wm = new WriterManager(new EfWriterRepository());
+
             ViewBag.ToplamBlogSayisi = blogManager.GetList().Count();
-            ViewBag.YazarBlogSayisi = blogManager.GetBlogListByWriter(1).Count();
+            var usermail = User.Identity.Name;
+            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            ViewBag.YazarBlogSayisi = blogManager.GetBlogListByWriter(writerid).Count();
             ViewBag.KategoriSayisi = categoryManager.GetList().Count();
             return View();
         }

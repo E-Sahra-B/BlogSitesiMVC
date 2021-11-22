@@ -11,6 +11,7 @@ namespace DataAccess.Abstract
         void Update(T t);
         List<T> GetListAll();
         T GetByID(int id);
+        T GetByFilter(Expression<Func<T, bool>> filter = null);
         List<T> GetListAll(Expression<Func<T, bool>> filter);
     }
 }

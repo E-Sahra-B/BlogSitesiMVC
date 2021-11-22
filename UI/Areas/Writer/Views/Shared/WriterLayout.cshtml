@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="~/writer/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/writer/assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="~/writer/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <link href="~/writer/assets/css/SweetAlert2.css" rel="stylesheet" />
+    <script src="~/writer/assets/js/SweetAlert2.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+
 </head>
 <body>
     <div class="container-scroller">
@@ -35,6 +40,8 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
+
+
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
                                 <img src="~/writer/assets/images/faces/face10.jpg" alt="image">
@@ -44,6 +51,8 @@
                                 <p class="mb-1 text-black">YazarAdıSoyadı</p>
                             </div>
                         </a>
+
+
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" asp-action="LogOut" asp-controller="Login">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Oturum Kapat

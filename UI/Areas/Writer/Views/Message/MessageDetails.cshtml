@@ -1,0 +1,17 @@
+﻿@model Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+}
+
+<h1>Mesaj Detay Sayfası</h1>
+<br />
+<label>Mesaj ID</label>
+<input type="text" asp-for="MessageID" class="form-control" />
+<br />
+<label>Mesaj Başlığı</label>
+<input type="text" asp-for="Subject" class="form-control" />
+<br />
+<label>Mesaj İçerigi</label>
+<textarea asp-for="MessageDetails" class="form-control" rows="15"></textarea>
+<br />
+<a class="btn btn-success" asp-action="Inbox" asp-controller="Message" asp-area="Writer">Mesajlara Dön</a>

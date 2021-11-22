@@ -1,0 +1,25 @@
+﻿@model List<Message2>
+@{
+    ViewData["Title"] = "InBox";
+}
+<h1>Gelen Kutusu</h1>
+<table class="table table-bordered">
+    <tr>
+        <th scope="row">#</th>
+        <th>Konu</th>
+        <th>Gönderen</th>
+        <th>Tarih</th>
+        <th>Mesajı Aç</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th scope="row">@item.MessageID</th>
+            <td>@item.Subject</td>
+            <td>@item.SenderUser.WriterName</td>
+            <td>@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+            <td><a href="/Writer/Message/MessageDetails?id=@item.MessageID" class="btn btn-success">Mesajı Aç</a></td>
+        </tr>
+    }
+</table>
+<a href="#" class="btn btn-primary">Yeni Mesaj Oluştur</a>

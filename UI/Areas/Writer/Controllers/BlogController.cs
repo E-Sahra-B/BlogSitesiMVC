@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace UI.Areas.Writer.Controllers
 {
@@ -15,7 +16,7 @@ namespace UI.Areas.Writer.Controllers
     {
         BlogManager bm = new BlogManager(new EfBlogRepository());
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
+        WriterManager wm = new WriterManager(new EfWriterRepository());
         [HttpGet]
         public IActionResult BlogAdd()
         {
@@ -37,7 +38,10 @@ namespace UI.Areas.Writer.Controllers
             {
                 p.BlogStatus = true;
                 p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                p.WriterID = 1;
+                var usermail = User.Identity.Name;
+                var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+                //var values = wm.GetWriterById(writerid);
+                p.WriterID = writerid;
                 bm.TAdd(p);
                 return RedirectToAction("BlogListByWriter", "Blog","Writer");
             }
@@ -67,7 +71,9 @@ namespace UI.Areas.Writer.Controllers
         [HttpPost]
         public IActionResult BlogEdit(Blog p)
         {
-            p.WriterID = 1;
+            var usermail = User.Identity.Name;
+            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            p.WriterID = writerid;
             p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
             p.BlogStatus = true;
@@ -76,14 +82,32 @@ namespace UI.Areas.Writer.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetListWithCategoryByWriterBM(1);
+            var usermail = User.Identity.Name;
+            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var values = bm.GetListWithCategoryByWriterBM(writerid);
             return View(values);
         }
         public IActionResult BlogDelete(int id)
         {
             var blogvalue = bm.GetByID(id);
             bm.TDelete(blogvalue);
+            Thread.Sleep(2000);
             return RedirectToAction("BlogListByWriter", "Blog", "Writer");
+        }
+        public IActionResult ChangeStatusBlog(int id)
+        {
+            var blogValue = bm.GetByID(id);
+            if (blogValue.BlogStatus)
+            {
+                blogValue.BlogStatus = false;
+            }
+            else
+            {
+                blogValue.BlogStatus = true;
+            }
+            bm.TUpdate(blogValue);
+            Thread.Sleep(2000);
+            return RedirectToAction("BlogListByWriter");
         }
     }
 }
