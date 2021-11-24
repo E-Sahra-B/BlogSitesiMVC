@@ -11,18 +11,17 @@
     <link rel="stylesheet" href="~/writer/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/writer/assets/vendors/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="~/writer/assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script src="~/writer/assets/js/jquery.js"></script>
     <link href="~/writer/assets/css/SweetAlert2.css" rel="stylesheet" />
     <script src="~/writer/assets/js/SweetAlert2.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
-
+    <link href="~/writer/assets/css/fontawesome.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container-scroller">
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="~/Writer/Dashboard/Index/"><img src="~/writer/assets/images/logo.svg" alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="/Writer/Dashboard/Index/"><img src="~/writer/assets/images/logo-mini.svg" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="~/Writer/Dashboard/Index/"><img src="~/writer/assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -40,8 +39,6 @@
                 </div>
                 <ul class="navbar-nav navbar-nav-right">
                     <li class="nav-item nav-profile dropdown">
-
-
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
                                 <img src="~/writer/assets/images/faces/face10.jpg" alt="image">
@@ -51,8 +48,6 @@
                                 <p class="mb-1 text-black">YazarAdıSoyadı</p>
                             </div>
                         </a>
-
-
                         <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
                             <a class="dropdown-item" asp-action="LogOut" asp-controller="Login">
                                 <i class="mdi mdi-cached mr-2 text-success"></i> Oturum Kapat
@@ -99,7 +94,7 @@
             </div>
         </nav>
         <div class="container-fluid page-body-wrapper">
-           @await Html.PartialAsync("~/Areas/Writer/Views/Writer/WriterNavbarPartial.cshtml")
+            @await Html.PartialAsync("~/Areas/Writer/Views/Writer/WriterNavbarPartial.cshtml")
             <div class="main-panel">
                 <div class="content-wrapper">
                     @RenderBody()

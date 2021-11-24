@@ -67,10 +67,16 @@ namespace UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Blog}/{action=Index}/{id?}");
+
                 endpoints.MapAreaControllerRoute(
                  name: "writer",
                  areaName: "writer",
-                 pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
+                 pattern: "{area:exists}/{controller=Writer}/{action=Index}/{id?}");
+
+                endpoints.MapAreaControllerRoute(
+                name: "admin",
+                areaName: "admin",
+                pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
                
             });

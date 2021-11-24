@@ -337,7 +337,6 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Shared\Components\WriterNotification\Default.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Shared\WriterLayout.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Writer\Index.cshtml.g.cs
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Writer\Test.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Writer\WriterAdd.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Writer\WriterEditProfile.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Writer\WriterFooterPartial.cshtml.g.cs
@@ -380,3 +379,9 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\ref\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.genruntimeconfig.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Index.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\AdminNavbarPartial.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\Index.cshtml.g.cs
