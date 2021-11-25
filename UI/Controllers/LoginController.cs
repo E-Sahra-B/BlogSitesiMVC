@@ -12,8 +12,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    [AllowAnonymous]
-    public class LoginController : Controller
+    public class LoginController : UserController
     {
         public IActionResult Index()
         {

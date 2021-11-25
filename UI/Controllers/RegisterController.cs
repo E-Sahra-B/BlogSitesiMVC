@@ -8,8 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
-    [AllowAnonymous]
-    public class RegisterController : Controller
+    public class RegisterController : UserController
     {
         WriterManager wm = new WriterManager(new EfWriterRepository());
         [HttpGet]

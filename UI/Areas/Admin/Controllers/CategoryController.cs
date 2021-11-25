@@ -1,16 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Business.Abstract;
+using Business.Concrete;
+using DataAccess.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Admin.Controllers
 {
     public class CategoryController : AdminBaseController
     {
-        public IActionResult Index()
+        //ICategoryService _categoryService;
+
+        //public CategoryController(ICategoryService categoryService)
+        //{
+        //    _categoryService = categoryService;
+        //}
+        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+
+        public IActionResult CategoryList()
         {
-            return View();
+            //var values = _categoryService.GetList();
+            var values = cm.GetList();
+            return View(values);
         }
     }
 }

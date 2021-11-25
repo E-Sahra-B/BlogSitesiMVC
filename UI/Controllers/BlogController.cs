@@ -1,33 +1,31 @@
-﻿using Business.Concrete;
-using Business.ValidationRules;
+﻿using Business.Abstract;
+using Business.Concrete;
 using DataAccess.EntityFramework;
-using Entity.Concrete;
-using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace UI.Controllers
 {
-    [AllowAnonymous]
-    public class BlogController : Controller
+    public class BlogController : UserController
     {
+        //IBlogService _blogService;
+        //public BlogController(IBlogService blogService)
+        //{
+        //    _blogService = blogService;
+        //}
         BlogManager bm = new BlogManager(new EfBlogRepository());
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+
         public IActionResult Index()
         {
+            //var values = _blogService.GetBlogListWithCategory();
             var values = bm.GetBlogListWithCategory();
             return View(values);
         }
         public IActionResult BlogReadAll(int id)
         {
             ViewBag.i = id;
+            //var values = _blogService.GetBlogByID(id);
             var values = bm.GetBlogByID(id);
             return View(values);
         }
-       
     }
 }

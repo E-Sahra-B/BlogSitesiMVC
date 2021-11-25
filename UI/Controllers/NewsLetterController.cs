@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    public class NewsLetterController : Controller
+    public class NewsLetterController : UserController
     {
         NewsLetterManager nm = new NewsLetterManager(new EfNewsLetterRepository());
 

@@ -1,14 +1,10 @@
 ﻿using Business.Concrete;
 using DataAccess.EntityFramework;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : UserController
     {
         CategoryManager cm = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()

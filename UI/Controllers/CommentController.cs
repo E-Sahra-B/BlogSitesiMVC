@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    public class CommentController : Controller
+    public class CommentController : UserController
     {
         CommentManager cm = new CommentManager(new EfCommentRepository());
         public IActionResult Index()

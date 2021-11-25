@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Entity.Concrete.Writer>
+
+    <p>
+        <a class="btn-sm btn-primary" asp-controller="Writer" asp-action="Add">Yeni Ekle</a>
+
+    </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Resim</th>
+            <th>Ad Soyad</th>
+            <th>Hakkında</th>
+            <th>Mail</th>
+            <th>Password</th>
+            <th>A/P</th>
+            <th>Güncelle/Detay/Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterID)
+            </td>
+            <td>
+                <img src="@item.WriterImage" class="img-md rounded-circle mr-3" alt="image">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterName)
+            </td>
+            <td>
+                @item.WriterAbout.Substring(0, item.WriterAbout.Substring(0, 50).LastIndexOf(" "))
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WriterPassword)
+            </td>
+            @if (item.WriterStatus == true)
+            {
+                <td> <span class="badge badge-primary">Aktif</span></td>
+            }
+            else
+            {
+                <td> <span class="badge badge-danger">Pasif</span></td>
+            }
+            <td>
+                <a class="btn-sm btn-warning" asp-controller="Writer" asp-action="Edit">Güncelle</a>
+                <a class="btn-sm btn-info" asp-controller="Writer" asp-action="Details">Detay</a>
+                <a class="btn-sm btn-danger" asp-controller="Writer" asp-action="Delete">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

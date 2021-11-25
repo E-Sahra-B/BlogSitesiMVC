@@ -10,8 +10,7 @@ using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
-    [AllowAnonymous]
-    public class ContactController : Controller
+    public class ContactController : UserController
     {
         
         ContactManager cm =new ContactManager(new EfContactRepository());
