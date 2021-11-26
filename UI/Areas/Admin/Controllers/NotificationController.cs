@@ -1,16 +1,18 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Admin.Controllers
 {
     public class NotificationController : AdminBaseController
     {
-        NotificationManager nm = new NotificationManager(new EfNotificationRepository());
-
+        private readonly IUnitOfWork u;
+        public NotificationController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult NotificationList()
         {
-            var values = nm.GetList();
+            var values = u.Notification.GetList();
             return View(values);
         }
     }

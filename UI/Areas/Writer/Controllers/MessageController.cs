@@ -1,5 +1,4 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -7,20 +6,22 @@ namespace UI.Areas.Writer.Controllers
 {
     public class MessageController : WriterBaseController
     {
-        Message2Manager mn = new Message2Manager(new EfMessage2Repository());
-        WriterManager wm = new WriterManager(new EfWriterRepository());
-
+        private readonly IUnitOfWork u;
+        public MessageController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult InBox()
         {
             var usermail = User.Identity.Name;
-            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            ViewBag.mesajsayisi = mn.GetInboxListByWriter(writerid).Count();
-            var values = mn.GetInboxListByWriter(writerid);
+            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            ViewBag.mesajsayisi = u.Message2.GetInboxListByWriter(writerid).Count();
+            var values = u.Message2.GetInboxListByWriter(writerid);
             return View(values);
         }
         public IActionResult MessageDetails(int id)
         {
-            var value = mn.GetByID(id);
+            var value = u.Message2.GetByID(id);
             return View(value);
         }
     }

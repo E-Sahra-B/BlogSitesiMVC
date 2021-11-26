@@ -1,16 +1,18 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Admin.Controllers
 {
     public class WriterController : AdminBaseController
     {
-        WriterManager wm = new WriterManager(new EfWriterRepository());
-
+        private readonly IUnitOfWork u;
+        public WriterController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
-            var values = wm.GetList();
+            var values = u.Writer.GetList();
             return View(values);
         }
     }

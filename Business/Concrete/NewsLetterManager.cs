@@ -7,15 +7,11 @@ namespace Business.Concrete
 {
     public class NewsLetterManager : INewsLetterService
     {
-        INewsLetterDal _newsLetterDal;
+        private readonly INewsLetterDal _newsLetterDal;
         public NewsLetterManager(INewsLetterDal newsLetterDal)
         {
             _newsLetterDal = newsLetterDal;
         }
-        //public void Add(NewsLetter newsLetter)
-        //{
-        //    _newsLetterDal.Insert(newsLetter);
-        //}
         public NewsLetter GetByID(int id)
         {
             return _newsLetterDal.GetByID(id);
@@ -37,4 +33,4 @@ namespace Business.Concrete
             _newsLetterDal.Update(t);
         }
     }
-    }
+}

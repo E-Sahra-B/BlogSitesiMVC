@@ -1,16 +1,18 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.ViewComponents.Category
 {
     public class CategoryList:ViewComponent
     {
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-        
+        private readonly IUnitOfWork u;
+        public CategoryList(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IViewComponentResult Invoke()
         {
-            var values = cm.GetList();
+            var values = u.Category.GetList();
             return View(values);
         }
     }

@@ -7,15 +7,11 @@ namespace Business.Concrete
 {
     public class ContactManager : IContactService
     {
-        IContactDal _contactDal;
+        private readonly IContactDal _contactDal;
         public ContactManager(IContactDal contactDal)
         {
             _contactDal = contactDal;
         }
-        //public void Add(Contact contact)
-        //{
-        //    _contactDal.Insert(contact);
-        //}
         public Contact GetByID(int id)
         {
             return _contactDal.GetByID(id);

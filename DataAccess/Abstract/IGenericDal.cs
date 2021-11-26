@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace DataAccess.Abstract
 {
-    public interface IGenericDal<T> where T:class
+    public interface IGenericDal<T> where T:class, new()
     {
         void Insert(T t);
         void Delete(T t);

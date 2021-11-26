@@ -1,27 +1,22 @@
-﻿using Business.Abstract;
-using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
     public class AboutController : UserController
     {
-        //IAboutService _aboutService;
-        //public AboutController(IAboutService aboutService)
-        //{
-        //    _aboutService = aboutService;
-        //}
-        AboutManager abm = new AboutManager(new EfAboutRepository());
+        private readonly IUnitOfWork u;
+        public AboutController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
-            //var values = _aboutService.GetList();
-            var values = abm.GetList();
+            var values = u.About.GetList();
             return View(values);
         }
         public PartialViewResult SocialMediaAbout()
         {
-            
             return PartialView();
         }
     }

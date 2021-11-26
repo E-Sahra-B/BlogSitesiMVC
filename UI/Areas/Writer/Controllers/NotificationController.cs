@@ -1,19 +1,22 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Writer.Controllers
 {
     public class NotificationController : WriterBaseController
     {
-        NotificationManager nm = new NotificationManager(new EfNotificationRepository());
+        private readonly IUnitOfWork u;
+        public NotificationController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
             return View();
         }
         public IActionResult AllNotification()
         {
-            var values = nm.GetList();
+            var values = u.Notification.GetList();
             return View(values);
         }
     }

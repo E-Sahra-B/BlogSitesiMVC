@@ -8,15 +8,11 @@ namespace Business.Concrete
 {
     public class CommentManager : ICommentService
     {
-        ICommentDal _commentDal;
+        private readonly ICommentDal _commentDal;
         public CommentManager(ICommentDal commentDal)
         {
             _commentDal = commentDal;
         }
-        //public void Add(Comment comment)
-        //{
-        //    _commentDal.Insert(comment);
-        //}
         public Comment GetByID(int id)
         {
             return _commentDal.GetByID(id);

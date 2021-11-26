@@ -1,18 +1,20 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace UI.Areas.Writer.ViewComponents.Writer
 {
     public class WriterAboutOnDashboard:ViewComponent
     {
-        WriterManager wm = new WriterManager(new EfWriterRepository());
+        private readonly IUnitOfWork u;
+        public WriterAboutOnDashboard(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IViewComponentResult Invoke()
         {
             var usermail = User.Identity.Name;
-            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            var values = wm.GetWriterById(writerid);
+            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var values = u.Writer.GetWriterById(writerid);
             return View(values);
         }
     }

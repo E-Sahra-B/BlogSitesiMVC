@@ -1,25 +1,25 @@
-﻿using Business.Concrete;
+﻿using Business.UnitOfWork;
 using Business.ValidationRules;
-using DataAccess.EntityFramework;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Entity.Concrete;
-using UI.Areas.Writer.Models;
-using System.IO;
 using System;
-using System.Security.Claims;
+using System.IO;
+using UI.Areas.Writer.Models;
 
 namespace UI.Areas.Writer.Controllers
 {
     public class WriterController : WriterBaseController
     {
-        WriterManager wm = new WriterManager(new EfWriterRepository());
+        private readonly IUnitOfWork u;
+        public WriterController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
             var mail = User.Identity.Name;
             ViewBag.yazarmail = mail;
-            ViewBag.yazarismi = wm.TGetByFilter(x => x.WriterMail == mail).WriterName;
+            ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return View();
         }
         public IActionResult WriterProfile()
@@ -38,7 +38,7 @@ namespace UI.Areas.Writer.Controllers
         {
             var mail = User.Identity.Name;
             ViewBag.yazarmail = mail;
-            ViewBag.yazarismi = wm.TGetByFilter(x => x.WriterMail == mail).WriterName;
+            ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return PartialView();
         }
         public PartialViewResult WriterFooterPartial()
@@ -49,8 +49,8 @@ namespace UI.Areas.Writer.Controllers
         public IActionResult WriterEditProfile()
         {
             var usermail = User.Identity.Name;
-            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            var wv = wm.GetByID(writerid);
+            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var wv = u.Writer.GetByID(writerid);
             return View(wv);
         }
         [HttpPost]
@@ -60,7 +60,7 @@ namespace UI.Areas.Writer.Controllers
             ValidationResult results=wl.Validate(p);
             if (results.IsValid)
             {
-                wm.TUpdate(p);
+                u.Writer.TUpdate(p);
                 return RedirectToAction("Index", "Dashboard", "Writer");
             }
             else
@@ -97,7 +97,7 @@ namespace UI.Areas.Writer.Controllers
             w.WriterPassword = p.WriterPassword;
             w.WriterStatus = true;
             w.WriterAbout = p.WriterAbout;
-            wm.TAdd(w);
+            u.Writer.TAdd(w);
             return RedirectToAction("Index", "Dashboard", "Writer");
         }
     }

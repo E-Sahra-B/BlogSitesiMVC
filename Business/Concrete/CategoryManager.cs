@@ -1,15 +1,13 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
-using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
 {
     public class CategoryManager:ICategoryService
     {
-        ICategoryDal _categoryDal;
+        private readonly ICategoryDal _categoryDal;
         public CategoryManager(ICategoryDal categoryDal)
         {
             _categoryDal = categoryDal;

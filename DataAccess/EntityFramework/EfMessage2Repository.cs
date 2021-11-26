@@ -10,6 +10,9 @@ namespace DataAccess.EntityFramework
 {
     public class EfMessage2Repository : GenericRepository<Message2>, IMessage2Dal
     {
+        public EfMessage2Repository(Context context) : base(context)
+        {
+        }
         public List<Message2> GetListWithMessageByWriter(int id)
         {
             using (var c = new Context())

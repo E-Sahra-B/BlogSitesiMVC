@@ -7,8 +7,7 @@ namespace Business.Concrete
 {
     public class Message2Manager : IMessage2Service
     {
-        IMessage2Dal _messageDal;
-
+        private readonly IMessage2Dal _messageDal;
         public Message2Manager(IMessage2Dal messageDal)
         {
             _messageDal = messageDal;

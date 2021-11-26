@@ -9,7 +9,7 @@ namespace Business.Concrete
 {
     public class WriterManager : IWriterService
     {
-        IWriterDal _writerDal;
+        private readonly IWriterDal _writerDal;
         public WriterManager(IWriterDal writerDal)
         {
             _writerDal = writerDal;

@@ -1,17 +1,17 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
     public class CommentController : UserController
     {
-        CommentManager cm = new CommentManager(new EfCommentRepository());
+        private readonly IUnitOfWork u;
+        public CommentController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
             return View();
@@ -27,12 +27,12 @@ namespace UI.Controllers
             p.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.CommentStatus = true;
             p.BlogID = 2;
-            cm.TAdd(p);
+            u.Comment.TAdd(p);
             return PartialView();
         }
         public PartialViewResult CommentListByBlog(int id)
         {
-            var values=cm.GetList(id);
+            var values= u.Comment.GetList(id);
             return PartialView(values);
         }
     }

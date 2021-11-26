@@ -1,6 +1,5 @@
-﻿using Business.Concrete;
+﻿using Business.UnitOfWork;
 using Business.ValidationRules;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +13,15 @@ namespace UI.Areas.Writer.Controllers
 {
     public class BlogController : WriterBaseController
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-        WriterManager wm = new WriterManager(new EfWriterRepository());
+        private readonly IUnitOfWork u;
+        public BlogController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         [HttpGet]
         public IActionResult BlogAdd()
         {
-            List<SelectListItem> categoryValues = (from x in cm.GetList()
+            List<SelectListItem> categoryValues = (from x in u.Category.GetList()
                                                    select new SelectListItem
                                                    {
                                                        Text = x.CategoryName,
@@ -39,10 +40,10 @@ namespace UI.Areas.Writer.Controllers
                 p.BlogStatus = true;
                 p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 var usermail = User.Identity.Name;
-                var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+                var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
                 //var values = wm.GetWriterById(writerid);
                 p.WriterID = writerid;
-                bm.TAdd(p);
+                u.Blog.TAdd(p);
                 return RedirectToAction("BlogListByWriter", "Blog","Writer");
             }
             else
@@ -57,8 +58,8 @@ namespace UI.Areas.Writer.Controllers
         [HttpGet]
         public IActionResult BlogEdit(int id)
         {
-            var blogvalue = bm.GetByID(id);
-            List<SelectListItem> categoryValues = (from x in cm.GetList()
+            var blogvalue = u.Blog.GetByID(id);
+            List<SelectListItem> categoryValues = (from x in u.Category.GetList()
                                                    select new SelectListItem
                                                    {
                                                        Text = x.CategoryName,
@@ -72,31 +73,31 @@ namespace UI.Areas.Writer.Controllers
         public IActionResult BlogEdit(Blog p)
         {
             var usermail = User.Identity.Name;
-            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             p.WriterID = writerid;
             p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
 
             p.BlogStatus = true;
-            bm.TUpdate(p);
+            u.Blog.TUpdate(p);
             return RedirectToAction("BlogListByWriter", "Blog", "Writer");
         }
         public IActionResult BlogListByWriter()
         {
             var usermail = User.Identity.Name;
-            var writerid = wm.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            var values = bm.GetListWithCategoryByWriterBM(writerid);
+            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            var values = u.Blog.GetListWithCategoryByWriterBM(writerid);
             return View(values);
         }
         public IActionResult BlogDelete(int id)
         {
-            var blogvalue = bm.GetByID(id);
-            bm.TDelete(blogvalue);
+            var blogvalue = u.Blog.GetByID(id);
+            u.Blog.TDelete(blogvalue);
             Thread.Sleep(2000);
             return RedirectToAction("BlogListByWriter", "Blog", "Writer");
         }
         public IActionResult ChangeStatusBlog(int id)
         {
-            var blogValue = bm.GetByID(id);
+            var blogValue = u.Blog.GetByID(id);
             if (blogValue.BlogStatus)
             {
                 blogValue.BlogStatus = false;
@@ -105,7 +106,7 @@ namespace UI.Areas.Writer.Controllers
             {
                 blogValue.BlogStatus = true;
             }
-            bm.TUpdate(blogValue);
+            u.Blog.TUpdate(blogValue);
             Thread.Sleep(2000);
             return RedirectToAction("BlogListByWriter");
         }

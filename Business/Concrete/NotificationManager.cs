@@ -1,15 +1,13 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
-using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
 {
     public class NotificationManager : INotificationService
     {
-        INotificationDal _notificationDal;
-
+        private readonly INotificationDal _notificationDal;
         public NotificationManager(INotificationDal notificationDal)
         {
             _notificationDal = notificationDal;

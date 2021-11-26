@@ -8,8 +8,7 @@ namespace Business.Concrete
 {
     public class BlogManager : IBlogService
     {
-        IBlogDal _blogDal;
-
+        private readonly IBlogDal _blogDal;
         public BlogManager(IBlogDal BlogDal)
         {
             _blogDal = BlogDal;

@@ -4,56 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositories
 {
-    public class GenericRepository<T> : IGenericDal<T> where T : class
+    public class GenericRepository<T> : IGenericDal<T> where T : class, new()
     {
+        protected Context context;
+        public GenericRepository(Context _context)
+        {
+            context = _context;
+        }
         public void Delete(T t)
         {
-            using var c = new Context();
-            c.Remove(t);
-            c.SaveChanges();
+            context.Remove(t);
         }
         public T GetByID(int id)
         {
-            using var c = new Context();
-            return c.Set<T>().Find(id);
+            return context.Set<T>().Find(id);
         }
         public List<T> GetListAll()
         {
-            using var c = new Context();
-            return c.Set<T>().ToList();
+            return context.Set<T>().ToList();
         }
         public void Insert(T t)
         {
-            using var c = new Context();
-            c.Add(t);
-            c.SaveChanges();
+            context.Add(t);
         }
-
         public List<T> GetListAll(Expression<Func<T, bool>> filter)
         {
-            using var c = new Context();
-            return c.Set<T>().Where(filter).ToList();
+            return context.Set<T>().Where(filter).ToList();
         }
-
         public void Update(T t)
         {
-            using var c = new Context();
-            c.Update(t);
-            c.SaveChanges(); 
+            context.Update(t);
         }
-
         public T GetByFilter(Expression<Func<T, bool>> filter = null)
         {
-            using var c = new Context();
             if (filter == null)
-                return c.Set<T>().FirstOrDefault();
+                return context.Set<T>().FirstOrDefault();
             else
-                return c.Set<T>().FirstOrDefault(filter);
+                return context.Set<T>().FirstOrDefault(filter);
         }
     }
 }

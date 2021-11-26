@@ -6,7 +6,7 @@ namespace Business.Concrete
 {
     public class WriterLoginManager : IWriterLoginService
     {
-        IWriterDal _writerDal;
+        private readonly IWriterDal _writerDal;
         public WriterLoginManager(IWriterDal writerDal)
         {
             _writerDal = writerDal;

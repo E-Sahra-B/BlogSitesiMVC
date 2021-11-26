@@ -1,15 +1,18 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Writer.ViewComponents.Blog
 {
     public class BlogListDashboard:ViewComponent
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
+        private readonly IUnitOfWork u;
+        public BlogListDashboard(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IViewComponentResult Invoke()
         {
-            var values = bm.GetBlogListWithCategory();
+            var values = u.Blog.GetBlogListWithCategory();
             return View(values);
         }
     }

@@ -1,19 +1,17 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Entity.Concrete;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
     public class ContactController : UserController
     {
-        
-        ContactManager cm =new ContactManager(new EfContactRepository());
+        private readonly IUnitOfWork u;
+        public ContactController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         [HttpGet]
         public IActionResult Index()
         {
@@ -24,7 +22,7 @@ namespace UI.Controllers
         {
             p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.ContactStatus = true;
-            cm.TAdd(p);
+            u.Contact.TAdd(p);
 
             return RedirectToAction("Index","Blog");
         }

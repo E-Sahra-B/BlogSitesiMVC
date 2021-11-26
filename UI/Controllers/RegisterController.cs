@@ -1,16 +1,18 @@
-﻿using Business.Concrete;
+﻿using Business.UnitOfWork;
 using Business.ValidationRules;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
 using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Controllers
 {
     public class RegisterController : UserController
     {
-        WriterManager wm = new WriterManager(new EfWriterRepository());
+        private readonly IUnitOfWork u;
+        public RegisterController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         [HttpGet]
         public IActionResult Index()
         {
@@ -25,7 +27,7 @@ namespace UI.Controllers
             {
              p.WriterStatus = true;
              p.WriterAbout = "Deneme Test";
-            wm.TAdd(p);
+            u.Writer.TAdd(p);
                 TempData.Add("message", string.Format("KAyıt olundu"));
 
 

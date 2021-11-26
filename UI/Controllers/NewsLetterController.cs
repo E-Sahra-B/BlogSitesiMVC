@@ -1,18 +1,16 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace UI.Controllers
 {
     public class NewsLetterController : UserController
     {
-        NewsLetterManager nm = new NewsLetterManager(new EfNewsLetterRepository());
-
+        private readonly IUnitOfWork u;
+        public NewsLetterController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         [HttpGet]
         public PartialViewResult SubscribeMail()
         {
@@ -23,7 +21,7 @@ namespace UI.Controllers
         public PartialViewResult SubscribeMail(NewsLetter p)
         {
             p.MailStatus = true;
-            nm.TAdd(p);
+            u.Newsletter.TAdd(p);
             return PartialView();
         }
     }

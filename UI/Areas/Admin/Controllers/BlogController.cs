@@ -1,19 +1,18 @@
-﻿using Business.Concrete;
-using DataAccess.EntityFramework;
+﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UI.Areas.Admin.Controllers
 {
     public class BlogController : AdminBaseController
     {
-        BlogManager bm = new BlogManager(new EfBlogRepository());
-        WriterManager wm = new WriterManager(new EfWriterRepository());
-        CategoryManager cm = new CategoryManager(new EfCategoryRepository());
-
-
+        private readonly IUnitOfWork u;
+        public BlogController(IUnitOfWork _service)
+        {
+            u = _service;
+        }
         public IActionResult Index()
         {
-            var values = bm.GetBlogListWithCategory();
+            var values = u.Blog.GetBlogListWithCategory();
             return View(values);
         }
     }
