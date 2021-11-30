@@ -48,7 +48,15 @@ namespace Business.UnitOfWork
 
         public int SaveChanges()
         {
-            return context.SaveChanges();
+            //return context.SaveChanges();
+            using (var dbTransaction= context.Database.BeginTransaction())
+            {
+              
+                    int result = context.SaveChanges();
+                    dbTransaction.Commit();
+                    return result;
+              
+            }
         }
 
         protected virtual void Dispose(bool disposing)

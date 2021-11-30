@@ -1,0 +1,19 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "CategoryAdd";
+}
+<h1>Yeni Kategori Girişi</h1>
+<br />
+@using (Html.BeginForm("CategoryAdd", "Category", "Admin", FormMethod.Post))
+{
+    <label>Kategori Adı</label>
+    <input type="text" asp-for="CategoryName" class="form-control" />
+    <span asp-validation-for="CategoryName" class="text-danger"></span>
+    <br />
+    <label>Kategori Açıklaması</label>
+    <textarea asp-for="CategoryDescription" class="form-control" rows="10"></textarea>
+    <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+    <br />
+    <button class="btn btn-success">Kategori Kaydet</button>
+}
+@*<form method="post" asp-controller="Category" asp-action="CategoryAdd"></form>*@

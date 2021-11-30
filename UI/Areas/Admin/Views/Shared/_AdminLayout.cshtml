@@ -150,6 +150,10 @@
                 </div>
             </div>
             <div class="wrapper wrapper-content animated fadeInRight">
+                @if (TempData["mesaj"] != null)
+                {
+            <div class="alert alert-info justify-content-center container my-1 mx-auto" role="alert">@TempData["mesaj"]</div>}
+
                 @RenderBody()
             </div>
             <div class="footer">

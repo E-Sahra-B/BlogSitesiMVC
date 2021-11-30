@@ -1,4 +1,6 @@
-﻿@model List<Category>
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@model IPagedList<Category>
 @{
     ViewData["Title"] = "CategoryList";
 }
@@ -6,18 +8,26 @@
     <tr>
         <th>Id</th>
         <th>Kategori Adı</th>
-        <th>Durumu</th>
-        <th>Detaylar</th>
+        <th>Pasif Yap</th>
+        <th>Aktif Yap</th>
+        <th>Düzenle</th>
         <th>Sil</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.CategoryID</td>
+            <th>@item.CategoryID</th>
             <td>@item.CategoryName</td>
-            <td>@item.CategoryStatus</td>
-            <td><a href="#" class="btn btn-info">Detaylar</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-secondary">Pasif Yap</a></td>
+            <td><a href="#" class="btn btn-primary">Aktif Yap</a></td>
+            <td><a href="#" class="btn btn-info">Düzenle</a></td>
+            <td><a href="/Admin/Category/CategoryDelete/@item.CategoryID/" 
+                   id="DeleteBtn" 
+                   onclick="return confirm('Silmek istediğinize emin misiniz?');"
+                   class="btn btn-danger">Sil</a></td>
         </tr>
     }
 </table>
+<td><a href="/Admin/Category/CategoryAdd/" class="btn btn-success">Yeni Kategori Ekle</a></td>
+<br /><br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("CategoryList", new { page }))
