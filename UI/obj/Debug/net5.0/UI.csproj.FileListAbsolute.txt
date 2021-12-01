@@ -394,3 +394,5 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\X.PagedList.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\X.PagedList.Mvc.Core.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.MvcApplicationPartsAssemblyInfo.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\CategoryAdd.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Blog\BlogAdd.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Writer\WriterAdd.cshtml.g.cs

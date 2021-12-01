@@ -3,53 +3,59 @@
 @{
     ViewData["Title"] = "NotificationList";
 }
-<p>
-    <a class="btn-sm btn-primary" asp-controller="Notification" asp-action="Create">Yeni Ekle</a>
+<div>
+    <p>
+        <a class="btn-sm btn-primary" asp-controller="Notification" asp-action="NotificationAdd">Yeni Bildirim Ekle</a>
 
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Bildirim Türü</th>
-            <th>Detay</th>
-            <th>Tarih</th>
-            <th>A/P</th>
-            <th>Güncelle/Detay/Sil</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NotificationID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NotificationType)
-                    @*<input type="text" asp-for="@item.NotificationType" />*@
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.NotificationDetails)
-                </td>
-                <td>
-                    @(((DateTime)item.NotificationDate).ToString("dd-MMM-yyyy"))
-                </td>
-                @if (item.NotificationStatus == true)
-                {
-                    <td> <span class="badge badge-primary">Aktif</span></td>
-                }
-                else
-                {
-                    <td> <span class="badge badge-dark">Pasif</span></td>
-                }
-                <td>
-                    <a class="btn-sm btn-warning" asp-controller="Notification" asp-action="Edit">Güncelle</a>
-                    <a class="btn-sm btn-info" asp-controller="Notification" asp-action="Details">Detay</a>
-                    <a class="btn-sm btn-danger" asp-controller="Notification" asp-action="Delete">Sil</a>
-                </td>
+                <th>#</th>
+                <th>Bildirim Türü</th>
+                <th>Detay</th>
+                <th>Tarih</th>
+                <th>A/P</th>
+                <th>Güncelle/Detay/Sil</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationType)
+                        @*<input type="text" asp-for="@item.NotificationType" />*@
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NotificationDetails)
+                    </td>
+                    <td>
+                        @(((DateTime)item.NotificationDate).ToString("dd-MMM-yyyy"))
+                    </td>
+                    @if (item.NotificationStatus == true)
+                    {
+                        <td> <span class="badge badge-primary">Aktif</span></td>
+                    }
+                    else
+                    {
+                        <td> <span class="badge badge-dark">Pasif</span></td>
+                    }
+                    <td>
+                        <a class="btn-sm btn-warning" asp-controller="Notification" asp-action="Edit">Güncelle</a>
+                        <a class="btn-sm btn-info" asp-controller="Notification" asp-action="Details">Detay</a>
+                        <a href="/Admin/Notification/NotificationDelete/@item.NotificationID/"
+                           id="DeleteBtn"
+                           onclick="return confirm('Silmek istediğinize emin misiniz?');"
+                           class="btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("NotificationList", new { page }))

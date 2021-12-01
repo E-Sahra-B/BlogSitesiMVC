@@ -3,68 +3,75 @@
 @{
     ViewData["Title"] = "Index";
 }
-<p>
-    <a class="btn-sm btn-primary" asp-controller="Blog" asp-action="Create">Yeni Ekle</a>
-
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Başlık</th>
-            <th>İçerik</th>
-            <th>Resim</th>
-            <th>Tarih</th>
-            <th>A/P</th>
-            <th>Kategori</th>
-            <th>Yazar</th>
-            <th>Güncelle/Detay/Sil</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<div>
+    <p>
+        <a class="btn-sm btn-primary" asp-controller="Blog" asp-action="BlogAdd">Yeni Blog Ekle</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BlogID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BlogTitle)
-                </td>
-                <td>
-                    @item.BlogContent.Substring(0, item.BlogContent.Substring(0, 50).LastIndexOf(" "))
-                </td>
-
-                <td>
-                    <img src="@item.BlogImage" class="img-md rounded-circle mr-3" alt="image">
-                </td>
-                <td>
-                    @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
-                </td>
-
-                @*@Html.DisplayFor(modelItem => item.BlogStatus)*@
-                @if (item.BlogStatus == true)
-                {
-                    <td> <span class="badge badge-primary">Aktif</span></td>
-                }
-                else
-                {
-                    <td> <span class="badge badge-dark">Pasif</span></td>
-                }
-
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Writer.WriterName)
-                </td>
-                <td>
-                    <a class="btn-sm btn-warning" asp-controller="Blog" asp-action="Edit">Güncelle</a>
-                    <a class="btn-sm btn-info" asp-controller="Blog" asp-action="Details">Detay</a>
-                    <a class="btn-sm btn-danger" asp-controller="Blog" asp-action="Delete">Sil</a>
-                </td>
+                <th>#</th>
+                <th>Başlık</th>
+                <th>İçerik</th>
+                <th>Resim</th>
+                <th>Tarih</th>
+                <th>A/P</th>
+                <th>Kategori</th>
+                <th>Yazar</th>
+                <th>Güncelle/Detay/Sil</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlogID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BlogTitle)
+                    </td>
+                    <td>
+                        @item.BlogContent.Substring(0, item.BlogContent.Substring(0, 50).LastIndexOf(" "))
+                    </td>
+
+                    <td>
+                        <img src="@item.BlogImage" class="img-md rounded-circle mr-3" alt="image">
+                    </td>
+                    <td>
+                        @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+                    </td>
+
+                    @*@Html.DisplayFor(modelItem => item.BlogStatus)*@
+                    @if (item.BlogStatus == true)
+                    {
+                        <td> <span class="badge badge-primary">Aktif</span></td>
+                    }
+                    else
+                    {
+                        <td> <span class="badge badge-dark">Pasif</span></td>
+                    }
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Writer.WriterName)
+                    </td>
+                    <td>
+                        <a class="btn-sm btn-warning" asp-controller="Blog" asp-action="Edit">Güncelle</a>
+                        <a class="btn-sm btn-info" asp-controller="Blog" asp-action="Details">Detay</a>
+                        <a href="/Admin/Blog/BlogDelete/@item.BlogID/"
+                           id="DeleteBtn"
+                           onclick="return confirm('Silmek istediğinize emin misiniz?');"
+                           class="btn-sm btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
