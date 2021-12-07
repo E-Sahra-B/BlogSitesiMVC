@@ -7,5 +7,6 @@ namespace DataAccess.Abstract
     {
         List<Blog> GetListWithCategory();
         List<Blog> GetListWithCategoryByWriter(int id);
+        List<Blog> GetListTitleWithExcel();
     }
 }

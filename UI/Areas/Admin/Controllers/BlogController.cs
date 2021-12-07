@@ -1,13 +1,17 @@
 ﻿using Business.UnitOfWork;
 using Business.ValidationRules;
+using ClosedXML.Excel;
+using DataAccess.Concrete;
 using Entity.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
+using UI.Areas.Admin.Models;
 using X.PagedList;
 
 namespace UI.Areas.Admin.Controllers
@@ -68,6 +72,46 @@ namespace UI.Areas.Admin.Controllers
             Thread.Sleep(2000);
             TempData["mesaj"] = "Silindi";
             return RedirectToAction("Index", "Blog", "Admin");
+        }
+        public IActionResult ExportDynamicExcelBlogList()
+        {
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Blog Listesi");
+                worksheet.Cell(1, 1).Value = "Blog ID";
+                worksheet.Cell(1, 2).Value = "Blog Adı";
+                int BloRowCount = 2;
+                foreach (var item in GetBlogTitleList())
+                {
+                    worksheet.Cell(BloRowCount, 1).Value = item.ID;
+                    worksheet.Cell(BloRowCount, 2).Value = item.BlogName;
+                    BloRowCount++;
+                }
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "Calisma.xlsx");
+                }
+            }
+        }
+        public List<BlogModel> GetBlogTitleList()
+        {
+            List<BlogModel> bm = new List<BlogModel>();
+            using (var c = new Context())
+            {
+                bm = c.Blogs.Select(x => new BlogModel
+                {
+                    ID =x.BlogID,
+                    BlogName =x.BlogTitle
+                }).ToList();
+            }
+            return bm;
+        }
+        public IActionResult BlogTitleListExcel()
+        {
+            return View();
         }
     }
 }

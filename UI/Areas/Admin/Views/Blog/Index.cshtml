@@ -4,9 +4,18 @@
     ViewData["Title"] = "Index";
 }
 <div>
-    <p>
-        <a class="btn-sm btn-primary" asp-controller="Blog" asp-action="BlogAdd">Yeni Blog Ekle</a>
-    </p>
+    <div class="row justify-content-between">
+        <div class="col-2">
+            <a class="btn-sm btn-primary " asp-controller="Blog" asp-action="BlogAdd">Yeni Blog Ekle</a>
+        </div>
+        <div class="col-2">
+            <a href=" /Admin/Blog/ExportDynamicExcelBlogList" class="btn-sm btn-success"><i class="fa fa-file-excel-o"></i>  Excel Listesini İndir</a>
+        </div>
+    </div>
+
+
+
+
     <table class="table">
         <thead>
             <tr>

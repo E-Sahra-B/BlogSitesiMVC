@@ -28,5 +28,12 @@ namespace DataAccess.EntityFramework
                     .Where(x=> x.WriterID==id).ToList();
             }
         }
+        public List<Blog> GetListTitleWithExcel()
+        {
+            using (var c = new Context())
+            {
+                return c.Blogs.Include(x => x.BlogTitle).ToList();
+            }
+        }
     }
 }

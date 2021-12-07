@@ -1,8 +1,10 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -52,6 +54,15 @@ namespace Business.Concrete
         public void TUpdate(Blog t)
         {
             _blogDal.Update(t);
+        }
+        public List<Blog> GetListTitleWithExcel()
+        {
+            //throw new System.NotImplementedException();
+            return _blogDal.GetListTitleWithExcel();
+        }
+        public Blog TGetByFilter(Expression<Func<Blog, bool>> filter)
+        {
+            return _blogDal.GetByFilter(filter);
         }
     }
 }
