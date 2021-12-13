@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -15,6 +17,10 @@ namespace Business.Concrete
         public Contact GetByID(int id)
         {
             return _contactDal.GetByID(id);
+        }
+        public int GetCount(Expression<Func<Contact, bool>> filter = null)
+        {
+            return _contactDal.GetCount(filter);
         }
         public List<Contact> GetList()
         {

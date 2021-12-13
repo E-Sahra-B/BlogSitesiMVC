@@ -3,6 +3,7 @@ using DataAccess.Abstract;
 using Entity.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -16,6 +17,10 @@ namespace Business.Concrete
         public Comment GetByID(int id)
         {
             return _commentDal.GetByID(id);
+        }
+        public int GetCount(Expression<Func<Comment, bool>> filter = null)
+        {
+            return _commentDal.GetCount(filter);
         }
         public List<Comment> GetList(int id)
         {

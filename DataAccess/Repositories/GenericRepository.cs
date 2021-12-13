@@ -45,5 +45,13 @@ namespace DataAccess.Repositories
             else
                 return context.Set<T>().FirstOrDefault(filter);
         }
+        public int GetCount(Expression<Func<T, bool>> filter = null)
+        {
+            using var c = new Context();
+            if (filter == null)
+                return c.Set<T>().Count();
+            else
+                return c.Set<T>().Where(filter).Count();
+        }
     }
 }

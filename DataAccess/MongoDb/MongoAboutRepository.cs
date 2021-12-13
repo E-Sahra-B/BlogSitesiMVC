@@ -62,6 +62,9 @@ namespace DataAccess.MongoDb
             return abouts.AsQueryable().Where(filter).ToList();
         }
 
-
+        public int GetCount(Expression<Func<About, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

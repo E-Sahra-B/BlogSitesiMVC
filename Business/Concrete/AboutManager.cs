@@ -1,11 +1,13 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
-    public class AboutManager : IAboutService
+    public partial class AboutManager : IAboutService
     {
         private readonly IAboutDal _aboutDal; 
         public AboutManager(IAboutDal aboutDal)
@@ -15,6 +17,10 @@ namespace Business.Concrete
         public About GetByID(int id)
         {
             return _aboutDal.GetByID(id);
+        }
+        public int GetCount(Expression<Func<About, bool>> filter = null)
+        {
+            return _aboutDal.GetCount(filter);
         }
         public List<About> GetList()
         {

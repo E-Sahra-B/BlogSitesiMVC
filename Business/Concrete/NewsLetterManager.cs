@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -15,6 +17,10 @@ namespace Business.Concrete
         public NewsLetter GetByID(int id)
         {
             return _newsLetterDal.GetByID(id);
+        }
+        public int GetCount(Expression<Func<NewsLetter, bool>> filter = null)
+        {
+            return _newsLetterDal.GetCount(filter);
         }
         public List<NewsLetter> GetList()
         {

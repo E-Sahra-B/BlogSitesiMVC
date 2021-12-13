@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entity.Concrete;
+using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace Business.Concrete
 {
@@ -36,6 +38,10 @@ namespace Business.Concrete
         public void TUpdate(Message2 t)
         {
             _messageDal.Update(t);
+        }
+        public int GetCount(Expression<Func<Message2, bool>> filter = null)
+        {
+            return _messageDal.GetCount(filter);
         }
     }
 }

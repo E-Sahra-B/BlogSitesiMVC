@@ -13,5 +13,6 @@ namespace DataAccess.Abstract
         T GetByID(int id);
         T GetByFilter(Expression<Func<T, bool>> filter = null);
         List<T> GetListAll(Expression<Func<T, bool>> filter);
+        int GetCount(Expression<Func<T, bool>> filter = null);
     }
 }

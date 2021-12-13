@@ -42,5 +42,9 @@ namespace Business.Concrete
         {
             return _writerDal.GetByFilter(filter);
         }
+        public int GetCount(Expression<Func<Writer, bool>> filter = null)
+        {
+            return _writerDal.GetCount(filter);
+        }
     }
 }

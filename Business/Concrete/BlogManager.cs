@@ -64,5 +64,9 @@ namespace Business.Concrete
         {
             return _blogDal.GetByFilter(filter);
         }
+        public int GetCount(Expression<Func<Blog, bool>> filter = null)
+        {
+            return _blogDal.GetCount(filter);
+        }
     }
 }
