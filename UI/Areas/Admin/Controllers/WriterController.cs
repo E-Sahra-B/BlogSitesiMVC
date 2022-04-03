@@ -1,9 +1,7 @@
 ﻿using Business.UnitOfWork;
 using Business.ValidationRules;
-using Entity.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading;
 using X.PagedList;
 

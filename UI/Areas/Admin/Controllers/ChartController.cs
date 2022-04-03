@@ -26,8 +26,14 @@ namespace UI.Areas.Admin.Controllers
             list.Add(new CategoryModel
             {
                 categoryname = "Spor",
+                categorycount = 2
+            });
+            list.Add(new CategoryModel
+            {
+                categoryname = "Sinema",
                 categorycount = 5
             });
+
             return Json(new { jsonlist = list });
         }
     }
