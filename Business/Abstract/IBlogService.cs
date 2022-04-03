@@ -11,6 +11,7 @@ namespace Business.Abstract
         List<Blog> GetBlogListByWriter(int id);
         List<Blog> GetBlogByID(int id);
         List<Blog> GetListWithCategoryByWriterBM(int id);
+        //public List<Blog> GetListWithCategoryByWriterBM(int id);
         List<Blog> GetLast3Blog();
         List<Blog> GetListTitleWithExcel();
         Blog TGetByFilter(Expression<Func<Blog, bool>> filter);
