@@ -7,6 +7,7 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\BlogApi.runtim
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\ref\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\BlogApi.pdb
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\FluentValidation.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Humanizer.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
@@ -43,6 +44,12 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\runtimes\win-x
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Business.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\DataAccess.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Entity.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Business.pdb
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\DataAccess.pdb
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Entity.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.csproj.AssemblyReference.cache
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.GeneratedMSBuildEditorConfig.editorconfig
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.AssemblyInfoInputs.cache
@@ -59,10 +66,3 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\ref\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.genruntimeconfig.cache
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\FluentValidation.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Business.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\DataAccess.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Entity.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Business.pdb
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\DataAccess.pdb
-C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Entity.pdb

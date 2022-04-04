@@ -1,0 +1,12 @@
+﻿@using UI.Controllers
+@model Class1
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Çalışan Adı Soyadı</label>
+    <input type="text" asp-for="@Model.Name" class="form-control my-lg-2 " />
+    <button type="submit" class="btn btn-info">Çalışan Ekle</button>
+</form>

@@ -1,0 +1,12 @@
+﻿@model UI.Controllers.Class1
+@{
+    ViewData["Title"] = "EditEmployee";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Api ile Personel Güncelleme Sayfası</h1>
+<form method="post">
+    <input asp-for=ID class="form-control my-2" />
+    <input asp-for=Name class="form-control" />
+    <button class="btn btn-outline-success my-2">Güncelle</button>
+</form>

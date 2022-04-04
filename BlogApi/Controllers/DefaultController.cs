@@ -8,14 +8,14 @@ namespace BlogApi.Controllers
     [ApiController]
     public class DefaultController : ControllerBase
     {
-        [HttpGet("list")]
+        [HttpGet]
         public IActionResult EmployeeList()
         {
             using var c = new ApiContext();
             var values = c.Employees.ToList();
             return Ok(values);
         }
-        [HttpPost("add")]
+        [HttpPost]
         public IActionResult EmployeeAdd(Employee employee)
         {
             using var c = new ApiContext();
@@ -23,7 +23,7 @@ namespace BlogApi.Controllers
             c.SaveChanges();
             return Ok();
         }
-        [HttpGet("getbyid{id}")]
+        [HttpGet("{id}")]
         public IActionResult EmployeeGet(int id)
         {
             using var c = new ApiContext();
@@ -34,7 +34,7 @@ namespace BlogApi.Controllers
             }
             return Ok(employee);
         }
-        [HttpDelete("delete{id}")]
+        [HttpDelete("{id}")]
         public IActionResult EmployeeDelete(int id)
         {
             using var c = new ApiContext();
@@ -47,7 +47,7 @@ namespace BlogApi.Controllers
             c.SaveChanges();
             return Ok();
         }
-        [HttpPut("update")]
+        [HttpPut]
         public IActionResult EmployeeUpdate(Employee employee)
         {
             using var c = new ApiContext();
