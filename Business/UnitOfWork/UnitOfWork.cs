@@ -26,6 +26,7 @@ namespace Business.UnitOfWork
         INotificationService notification;
         IWriterService writer;
         IAdminService admin;
+        IUserService user;
 
         public IAboutService About => about ?? (about = new AboutManager(new EfAboutRepository(context)));
         //public IAboutService About => about ?? (about = new AboutManager(new MongoAboutRepository()));
@@ -39,6 +40,7 @@ namespace Business.UnitOfWork
         public INotificationService Notification => notification ?? (notification = new NotificationManager(new EfNotificationRepository(context)));
         public IWriterService Writer => writer ?? (writer = new WriterManager(new EfWriterRepository(context)));
         public IAdminService Admin => admin ?? (admin = new AdminManager(new EfAdminRepository(context)));
+        public IUserService User => user ?? (user = new UserManager(new EfUserRepository(context)));
 
         public int SaveChanges()
         {

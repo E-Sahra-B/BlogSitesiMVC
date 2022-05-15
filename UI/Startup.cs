@@ -1,8 +1,11 @@
 ﻿using Business.UnitOfWork;
+using DataAccess.Concrete;
+using Entity.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +24,13 @@ namespace UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>(); //düzeltilecek
+            services.AddIdentity<AppUser, AppRole>(x =>
+            {
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<Context>();
+
             services.AddControllersWithViews();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddMvc(config =>
@@ -36,7 +46,6 @@ namespace UI
                 .AddCookie(x =>
                 {
                     x.LoginPath = "/Login/Index";
-
                 }
              );
         }
@@ -72,7 +81,6 @@ namespace UI
                 areaName: "admin",
                 pattern: "{area:exists}/{controller=Admin}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-               
             });
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Business.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace UI.Areas.Writer.ViewComponents.Writer
 {
@@ -12,9 +13,9 @@ namespace UI.Areas.Writer.ViewComponents.Writer
         }
         public IViewComponentResult Invoke()
         {
-            var usermail = User.Identity.Name;
-            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            var values = u.Writer.GetWriterById(writerid);
+            var username = User.Identity.Name;
+            ViewBag.veri = username;
+            var values = u.User.GetAll(email: username);
             return View(values);
         }
     }

@@ -40,6 +40,7 @@ namespace DataAccess.Repositories
         }
         public T GetByFilter(Expression<Func<T, bool>> filter = null)
         {
+            using var c = new Context();
             if (filter == null)
                 return context.Set<T>().FirstOrDefault();
             else

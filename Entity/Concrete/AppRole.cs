@@ -1,8 +1,7 @@
-﻿//using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 namespace Entity.Concrete
 {
-    //public class AppRole : IdentityRole<int>
-    public class AppRole 
+   public class AppRole : IdentityRole<int>
     {
     }
 }

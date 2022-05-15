@@ -13,7 +13,8 @@ namespace UI.Areas.Writer.ViewComponents.Writer
         }
         public IViewComponentResult Invoke()
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
             var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             int id = writerid;
             ViewBag.mesajsayisi = u.Message2.GetInboxListByWriter(id).Count();

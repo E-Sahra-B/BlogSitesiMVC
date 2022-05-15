@@ -39,7 +39,8 @@ namespace UI.Areas.Writer.Controllers
             {
                 p.BlogStatus = true;
                 p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                var usermail = User.Identity.Name;
+                var username = User.Identity.Name;
+                var usermail=  u.User.TGetByFilter(x => x.UserName == username).Email;
                 var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
                 //var values = wm.GetWriterById(writerid);
                 p.WriterID = writerid;
@@ -72,7 +73,8 @@ namespace UI.Areas.Writer.Controllers
         [HttpPost]
         public IActionResult BlogEdit(Blog p)
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
             var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             p.WriterID = writerid;
             p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
@@ -83,7 +85,8 @@ namespace UI.Areas.Writer.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
             var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             var values = u.Blog.GetListWithCategoryByWriterBM(writerid);
             return View(values);

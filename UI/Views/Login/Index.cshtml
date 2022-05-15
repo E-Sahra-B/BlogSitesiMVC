@@ -1,28 +1,30 @@
-﻿@{
+﻿@model UserSignInViewModel
+@{
     ViewData["Title"] = "Index";
 }
 
 <section class="main-content-w3layouts-agileits">
     <div class="container">
-        <h3 class="tittle" style="color:#01cd74">Yazar Giriş</h3>
+        <h3 class="tittle" style="color:#01cd74">Kullanıcı Giriş</h3>
         <div class="row inner-sec">
             <div class="login p-5 bg-light mx-auto mw-100">
                 <form method="post">
                     <div class="form-group">
-                        <label for="exampleInputEmail1 mb-2">Mail Adresi</label>
-                        <input type="email" class="form-control" name="WriterMail" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
-                        @*<small id="emailHelp" class="form-text text-muted">Mail adresiniz kimseyle paylaşılmayacaktır.</small>*@
+                        <label for="exampleInputEmail1 mb-2">Kullanıcı Adınız</label>
+                        <input type="text" class="form-control" asp-for="UserName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kullanıcı adınızı Giriniz" required="">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1 mb-2">Şifre</label>
-                        <input type="password" name="WriterPassword" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                        <label for="exampleInputPassword1 mb-2">Parola</label>
+                        <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1" placeholder="Parolanızı Giriniz" required="">
                     </div>
                     <div class="form-check mb-2">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Beni Hatırla</label>
+                        <label class="form-check-label" asp-for="IsPersistent" for="exampleCheck1">Beni Hatırla</label>
                     </div>
                     <button type="submit" class="btn btn-primary submit mb-4">Giriş Yap</button>
-                    <p><a href="/Register/Index">Hesabınız Yoksa</a></p>
+                    <p class="text-danger">@TempData["ErrorMessage"]</p>
+                    @*<p><a href="/Register/Index">Hesabınız Yoksa</a></p>*@
+                    <p><a href="/RegisterUser/Index">Hesabınız Yoksa</a></p>
                 </form>
             </div>
         </div>

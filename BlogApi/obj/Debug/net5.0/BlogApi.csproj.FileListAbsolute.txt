@@ -66,3 +66,8 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\ref\BlogApi.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\obj\Debug\net5.0\BlogApi.genruntimeconfig.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\BlogApi\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll

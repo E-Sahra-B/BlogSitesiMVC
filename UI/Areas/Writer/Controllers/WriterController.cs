@@ -17,7 +17,8 @@ namespace UI.Areas.Writer.Controllers
         }
         public IActionResult Index()
         {
-            var mail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var mail = u.User.TGetByFilter(x => x.UserName == username).Email;
             ViewBag.yazarmail = mail;
             ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return View();
@@ -36,7 +37,8 @@ namespace UI.Areas.Writer.Controllers
         }
         public PartialViewResult WriterNavbarPartial()
         {
-            var mail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var mail = u.User.TGetByFilter(x => x.UserName == username).Email;
             ViewBag.yazarmail = mail;
             ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
             return PartialView();
@@ -48,7 +50,8 @@ namespace UI.Areas.Writer.Controllers
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
             var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             var wv = u.Writer.GetByID(writerid);
             return View(wv);

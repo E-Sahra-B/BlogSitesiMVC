@@ -420,3 +420,10 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\ref\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.genruntimeconfig.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\RegisterUser\Index.cshtml.g.cs

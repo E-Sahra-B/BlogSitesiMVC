@@ -18,6 +18,12 @@ namespace Business.Concrete
         {
             return _newsLetterDal.GetByID(id);
         }
+
+        public NewsLetter GetByMail(string mail)
+        {
+            return _newsLetterDal.GetByFilter(x => x.Mail == mail);
+        }
+
         public int GetCount(Expression<Func<NewsLetter, bool>> filter = null)
         {
             return _newsLetterDal.GetCount(filter);

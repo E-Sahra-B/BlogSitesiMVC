@@ -13,7 +13,8 @@ namespace UI.Areas.Writer.Controllers
         }
         public IActionResult InBox()
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
             var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
             ViewBag.mesajsayisi = u.Message2.GetInboxListByWriter(writerid).Count();
             var values = u.Message2.GetInboxListByWriter(writerid);

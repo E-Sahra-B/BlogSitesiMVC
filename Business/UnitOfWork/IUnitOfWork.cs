@@ -16,6 +16,7 @@ namespace Business.UnitOfWork
         INotificationService Notification { get; }
         IWriterService Writer { get; }
         IAdminService Admin { get; }
+        IUserService User { get; }
         int SaveChanges();
     }
 }
