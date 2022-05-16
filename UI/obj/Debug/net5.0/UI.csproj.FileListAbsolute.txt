@@ -207,6 +207,9 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\ExcelNumberFormat.d
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\FluentValidation.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Humanizer.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\JetBrains.Annotations.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -217,9 +220,12 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.CodeAnaly
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -397,6 +403,7 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\Employe
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\ErrorPage\Error1.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\NewsLetter\SubscribeMail.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\RegisterUser\Index.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\Register\Index.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\Shared\Components\BlogLast3Post\Default.cshtml.g.cs
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\Shared\Components\CategoryList\Default.cshtml.g.cs
@@ -420,10 +427,3 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\ref\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.genruntimeconfig.cache
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Views\RegisterUser\Index.cshtml.g.cs

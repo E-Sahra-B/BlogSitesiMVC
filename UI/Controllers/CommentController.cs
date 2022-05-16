@@ -17,18 +17,19 @@ namespace UI.Controllers
             return View();
         }
         [HttpGet]
-        public PartialViewResult PartialAddComment()
+        public PartialViewResult PartialAddComment(int id)
         {
             return PartialView();
         }
         [HttpPost]
-        public PartialViewResult PartialAddComment(Comment p)
+        public IActionResult PartialAddComment(Comment p)
         {
             p.CommentDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.CommentStatus = true;
-            p.BlogID = 2;
             u.Comment.TAdd(p);
-            return PartialView();
+            u.SaveChanges();
+            var id = p.BlogID;
+            return RedirectToAction("BlogReadAll", "Blog",new { id});
         }
         public PartialViewResult CommentListByBlog(int id)
         {

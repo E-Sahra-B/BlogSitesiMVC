@@ -18,11 +18,16 @@ namespace UI.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult SubscribeMail(NewsLetter p)
+        public IActionResult SubscribeMail(NewsLetter newsLetter)
         {
-            p.MailStatus = true;
-            u.Newsletter.TAdd(p);
-            return PartialView();
+            newsLetter.MailStatus = true;
+            if (u.Newsletter.GetByMail(newsLetter.Mail) == null && newsLetter.Mail != null)
+            {
+                u.Newsletter.TAdd(newsLetter);
+                u.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

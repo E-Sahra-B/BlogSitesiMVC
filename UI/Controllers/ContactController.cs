@@ -23,8 +23,8 @@ namespace UI.Controllers
             p.ContactDate = DateTime.Parse(DateTime.Now.ToShortDateString());
             p.ContactStatus = true;
             u.Contact.TAdd(p);
-
-            return RedirectToAction("Index","Blog");
+            u.SaveChanges();
+            return RedirectToAction("Index", "Contact");
         }
     }
 }

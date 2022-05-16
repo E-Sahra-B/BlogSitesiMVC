@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UI.ViewComponents.Comment
 {
-    public class CommentListByBlog:ViewComponent
+    public class CommentListByBlog : ViewComponent
     {
         private readonly IUnitOfWork u;
         public CommentListByBlog(IUnitOfWork _service)

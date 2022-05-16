@@ -1,11 +1,12 @@
 ﻿<div class="comment-top">
     <h4>Yorum Yapabilirsiniz</h4>
     <div class="comment-bottom">
-        <form action="/Comment/PartialAddComment/" method="post">
+        <form asp-action="PartialAddComment" asp-controller="Comment"method="post">
+            <input type="hidden" name="BlogID" value="@ViewBag.i" />
             <input class="form-control" type="text" name="CommentUserName" placeholder="Adınız Soyadınız" required="">
             <input class="form-control" type="text" name="CommentTitle" placeholder="Konu" required="">
             <textarea class="form-control" name="CommentContent" placeholder="Yorumunuz..." required=""></textarea>
-            <button type="submit" class="btn btn-primary submit">YorumYap</button>
+            <button type="submit"  class="btn btn-primary submit">YorumYap</button>
         </form>
     </div>
 </div>
