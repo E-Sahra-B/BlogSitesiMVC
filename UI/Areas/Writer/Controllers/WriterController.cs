@@ -20,7 +20,7 @@ namespace UI.Areas.Writer.Controllers
             var username = User.Identity.Name;
             var mail = u.User.TGetByFilter(x => x.UserName == username).Email;
             ViewBag.yazarmail = mail;
-            ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
+            ViewBag.yazarismi = username;
             return View();
         }
         public IActionResult WriterProfile()
@@ -38,9 +38,10 @@ namespace UI.Areas.Writer.Controllers
         public PartialViewResult WriterNavbarPartial()
         {
             var username = User.Identity.Name;
-            var mail = u.User.TGetByFilter(x => x.UserName == username).Email;
-            ViewBag.yazarmail = mail;
-            ViewBag.yazarismi = u.Writer.TGetByFilter(x => x.WriterMail == mail).WriterName;
+            //var mail = u.User.TGetByFilter(x => x.UserName == username).Email;
+            //ViewBag.yazarmail = mail;
+           
+            ViewBag.obama = username;
             return PartialView();
         }
         public PartialViewResult WriterFooterPartial()
