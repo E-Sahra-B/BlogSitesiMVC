@@ -1,49 +1,85 @@
-﻿@model Writer
+﻿@*@model Writer*@
+@model UI.Areas.Writer.Models.UserUpdateViewModel
 @{
     ViewData["Title"] = "WriterEditProfile";
 }
 
-@using (Html.BeginForm("WriterEditProfile","Writer","Writer", FormMethod.Post))
+<!-- #region eski -->
+@*@using (Html.BeginForm("WriterEditProfile", "Writer", "Writer", FormMethod.Post))
+    {
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-primary">Yazar Profil Bilgileri Düzenleme</h4>
+                    <br />
+                    <input type="hidden" class="form-control" id="exampleInputEmail3" asp-for="WriterID">
+
+                    <form class="forms-sample">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Yazar Ad Soyad</label>
+                            <input type="text" class="form-control" id="exampleInputName1" asp-for="WriterName">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Mail Adres</label>
+                            <input type="email" class="form-control" id="exampleInputEmail3" asp-for="WriterMail">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Şifre</label>
+                            <input type="password" class="form-control" id="exampleInputPassword4" asp-for="WriterPassword">
+                        </div>
+                        <div class="form-group">
+                            <label>Yazar Görsel</label>
+                            <input type="file" class="file-upload-default">
+                            <div class="input-group col-xs-12">
+                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleTextarea1">Yazar Hakkında</label>
+                            <textarea class="form-control" id="exampleTextarea1" rows="10" asp-for="WriterAbout"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                        <button class="btn btn-light">Vazgeç</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }*@
+<!-- #endregion -->
+*@using (Html.BeginForm("WriterEditProfile", "Writer", "Writer", FormMethod.Post))
 {
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title text-primary">Yazar Profil Bilgileri Düzenleme</h4>
+                <h4 class="card-title">Yazar Profil Bilgileri Düzenleme</h4>
                 <br />
-                <input type="hidden" class="form-control" id="exampleInputEmail3" asp-for="WriterID">
-
-                <form class="forms-sample">
+                <form class="forms-sample" method="post">
                     <div class="form-group">
-                        <label for="exampleInputName1">Yazar Ad Soyad</label>
-                        <input type="text" class="form-control" id="exampleInputName1" asp-for="WriterName">
+                        <label for="exampleInputName1">Adınız</label>
+                        <input type="text" asp-for="@Model.namesurname" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail3">Mail Adres</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" asp-for="WriterMail">
+                        <label for="exampleInputName2">Kullanıcı Adınız</label>
+                        <input type="text" asp-for="@Model.username" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword4">Şifre</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" asp-for="WriterPassword">
+                        <label for="exampleInputEmail3">Mail Adresiniz</label>
+                        <input type="text" asp-for="@Model.mail" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label>Yazar Görsel</label>
-                        <input type="file" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                            <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
-                            </span>
-                        </div>
+                        <label for="exampleInputEmail3">Yeni Şifreniz</label>
+                        <input type="password" asp-for="@Model.password" class="form-control" />
                     </div>
                     <div class="form-group">
-                        <label for="exampleTextarea1">Yazar Hakkında</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="10" asp-for="WriterAbout"></textarea>
+                        <label for="exampleInputEmail3">Resim Yolunuz</label>
+                        <input type="text" asp-for="@Model.imageurl" class="form-control" />
                     </div>
                     <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
-                    <button class="btn btn-light">Vazgeç</button>
                 </form>
             </div>
         </div>
     </div>
-                }
-
+}

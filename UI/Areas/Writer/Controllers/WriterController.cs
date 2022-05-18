@@ -1,9 +1,12 @@
 ﻿using Business.UnitOfWork;
 using Business.ValidationRules;
+using Entity.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using UI.Areas.Writer.Models;
 
 namespace UI.Areas.Writer.Controllers
@@ -11,9 +14,11 @@ namespace UI.Areas.Writer.Controllers
     public class WriterController : WriterBaseController
     {
         private readonly IUnitOfWork u;
-        public WriterController(IUnitOfWork _service)
+        private readonly UserManager<AppUser> _userManager;
+        public WriterController(IUnitOfWork _service, UserManager<AppUser> userManager)
         {
             u = _service;
+            _userManager = userManager;
         }
         public IActionResult Index()
         {
@@ -49,32 +54,51 @@ namespace UI.Areas.Writer.Controllers
             return PartialView();
         }
         [HttpGet]
-        public IActionResult WriterEditProfile()
+        public async Task<IActionResult> WriterEditProfile()
         {
-            var username = User.Identity.Name;
-            var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
-            var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
-            var wv = u.Writer.GetByID(writerid);
-            return View(wv);
+            #region eski
+            //var username = User.Identity.Name;
+            //var usermail = u.User.TGetByFilter(x => x.UserName == username).Email;
+            //var writerid = u.Writer.TGetByFilter(x => x.WriterMail == usermail).WriterID;
+            //var wv = u.Writer.GetByID(writerid);
+            //return View(wv);
+            #endregion            
+            var writer = await _userManager.FindByNameAsync(User.Identity.Name);
+            UserUpdateViewModel model = new UserUpdateViewModel();
+            model.mail = writer.Email;
+            model.namesurname = writer.NameSurname;
+            model.username = writer.UserName;
+            model.imageurl = writer.ImageUrl;
+            return View(model);
         }
         [HttpPost]
-        public IActionResult WriterEditProfile(Entity.Concrete.Writer p)
+        public async Task<IActionResult> WriterEditProfile(UserUpdateViewModel model)
         {
-            WriterValidator wl = new WriterValidator();
-            ValidationResult results=wl.Validate(p);
-            if (results.IsValid)
-            {
-                u.Writer.TUpdate(p);
-                return RedirectToAction("Index", "Dashboard", "Writer");
-            }
-            else
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-            }
-            return View();
+            #region eski
+            //WriterValidator wl = new WriterValidator();
+            //ValidationResult results=wl.Validate(p);
+            //if (results.IsValid)
+            //{
+            //    u.Writer.TUpdate(p);
+            //    return RedirectToAction("Index", "Dashboard", "Writer");
+            //}
+            //else
+            //{
+            //    foreach (var item in results.Errors)
+            //    {
+            //        ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            //    }
+            //}
+            //return View();
+
+            #endregion            
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            values.NameSurname = model.namesurname;
+            values.ImageUrl = model.imageurl;
+            values.Email = model.mail;
+            values.PasswordHash = _userManager.PasswordHasher.HashPassword(values, model.password);
+            var result = await _userManager.UpdateAsync(values);
+            return RedirectToAction("Index", "Dashboard", "Writer");
         }
         [HttpGet]
         public IActionResult WriterAdd()
