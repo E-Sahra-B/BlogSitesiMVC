@@ -1,0 +1,31 @@
+﻿@model Message2
+@{
+    ViewData["Title"] = "SendMessage";
+    Layout = "~/Areas/Writer/Views/Shared/WriterLayout.cshtml";
+}
+
+<h1>Yeni Mesaj Oluşturma Sayfası</h1>
+@using (Html.BeginForm("SendMessage", "Message", "Writer", FormMethod.Post))
+{
+    @*@Html.Label("Alıcı")
+         @Html.TextBox("ReceiverMail", "", new { @class = "form-control" })
+         @Html.ValidationMessageFor(x => x.ReceiverUser, "", new { @class = "text-danger" })
+         <br />
+         @Html.Label("Konu")
+         @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+         @Html.ValidationMessageFor(x => x.Subject, "", new { @class = "text-danger" })
+        <br />
+             @Html.Label("Mesajınız")
+             @Html.TextAreaFor(x => x.Details, 4, 10, new { @class = "form-control" })
+             @Html.ValidationMessageFor(x => x.Details, "", new { @class = "text-danger" })*@
+    <label>Alıcı</label>
+    <input type="text" asp-for="ReceiverUser" class="form-control" placeholder="Lütfen Alıcı İsmini Giriniz!" />
+    <br />
+    <label>Mesaj Başlığı</label>
+    <input type="text" asp-for="Subject" class="form-control" placeholder="Lütfen Konu Giriniz!" />
+    <br />
+    <label>Mesaj İçerigi</label>
+<textarea asp-for="MessageDetails" class="form-control" rows="15" placeholder="Lütfen Mesajınızı Giriniz!"></textarea>
+    <br />
+    <button class="btn btn-info" asp-action="Inbox" asp-controller="Message" asp-area="Writer">Mesajı Gönder</button>
+}

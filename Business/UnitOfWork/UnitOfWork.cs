@@ -20,7 +20,6 @@ namespace Business.UnitOfWork
         ICategoryService category;
         ICommentService comment;
         IContactService contact;
-        IMessageService message;
         IMessage2Service message2;
         INewsLetterService newsletter;
         INotificationService notification;
@@ -34,7 +33,6 @@ namespace Business.UnitOfWork
         public ICategoryService Category => category ?? (category = new CategoryManager(new EfCategoryRepository(context)));
         public ICommentService Comment => comment ?? (comment = new CommentManager(new EfCommentRepository(context)));
         public IContactService Contact => contact ?? (contact = new ContactManager(new EfContactRepository(context)));
-        public IMessageService Message => message ?? (message = new MessageManager(new EfMessageRepository(context)));
         public IMessage2Service Message2 => message2 ?? (message2 = new Message2Manager(new EfMessage2Repository(context)));
         public INewsLetterService Newsletter => newsletter ?? (newsletter = new NewsLetterManager(new EfNewsLetterRepository(context)));
         public INotificationService Notification => notification ?? (notification = new NotificationManager(new EfNotificationRepository(context)));
@@ -47,11 +45,9 @@ namespace Business.UnitOfWork
             //return context.SaveChanges();
             using (var dbTransaction= context.Database.BeginTransaction())
             {
-              
                     int result = context.SaveChanges();
                     dbTransaction.Commit();
                     return result;
-              
             }
         }
         protected virtual void Dispose(bool disposing)
@@ -60,23 +56,12 @@ namespace Business.UnitOfWork
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
                 }
-
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
                 disposedValue = true;
             }
         }
-        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        // ~UnitOfWork()
-        // {
-        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-        //     Dispose(disposing: false);
-        // }
         public void Dispose()
         {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose(disposing: true);
             GC.SuppressFinalize(this);
         }

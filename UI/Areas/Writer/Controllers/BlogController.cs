@@ -45,6 +45,7 @@ namespace UI.Areas.Writer.Controllers
                 //var values = wm.GetWriterById(writerid);
                 p.WriterID = writerid;
                 u.Blog.TAdd(p);
+                u.SaveChanges();
                 return RedirectToAction("BlogListByWriter", "Blog","Writer");
             }
             else
@@ -81,6 +82,7 @@ namespace UI.Areas.Writer.Controllers
 
             p.BlogStatus = true;
             u.Blog.TUpdate(p);
+            u.SaveChanges();
             return RedirectToAction("BlogListByWriter", "Blog", "Writer");
         }
         public IActionResult BlogListByWriter()

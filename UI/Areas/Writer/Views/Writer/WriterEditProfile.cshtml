@@ -77,7 +77,10 @@
                         <label for="exampleInputEmail3">Resim Yolunuz</label>
                         <input type="text" asp-for="@Model.imageurl" class="form-control" />
                     </div>
-                    <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                    <div class="row justify-content-between">
+                        <button type="submit" class="btn btn-gradient-primary mr-2">Güncelle</button>
+                        <button class="btn btn-light mr-2" asp-action="Index" asp-controller="Dashboard" asp-area="Writer">Vazgeç</button>
+                    </div>
                 </form>
             </div>
         </div>

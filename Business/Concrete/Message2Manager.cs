@@ -22,10 +22,10 @@ namespace Business.Concrete
         {
             return _messageDal.GetListAll();
         }
-        public List<Message2> GetInboxListByWriter(int id)
+        public List<Message2> GetInboxWithMessageByWriter(int id)
         {
             //return _messageDal.GetListAll(x => x.ReceiverID == id);
-            return _messageDal.GetListWithMessageByWriter(id);
+            return _messageDal.GetInboxWithMessageByWriter(id);
         }
         public void TAdd(Message2 t)
         {
@@ -42,6 +42,11 @@ namespace Business.Concrete
         public int GetCount(Expression<Func<Message2, bool>> filter = null)
         {
             return _messageDal.GetCount(filter);
+        }
+
+        public List<Message2> GetSendBoxWithMessageByWriter(int id)
+        {
+            return _messageDal.GetSendBoxWithMessageByWriter(id);
         }
     }
 }

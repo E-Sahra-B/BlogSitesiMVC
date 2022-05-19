@@ -427,3 +427,5 @@ C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\ref\UI.dll
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.pdb
 C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\UI.genruntimeconfig.cache
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Message\SendBox.cshtml.g.cs
+C:\MyProjects\VisualStudio\BlogSitesiMVC\UI\obj\Debug\net5.0\Razor\Areas\Writer\Views\Message\SendMessage.cshtml.g.cs

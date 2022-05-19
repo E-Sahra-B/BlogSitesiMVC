@@ -10,7 +10,6 @@ namespace Business.UnitOfWork
         ICategoryService Category { get; }
         ICommentService Comment { get; }
         IContactService Contact { get; }
-        IMessageService Message { get; }
         IMessage2Service Message2 { get; }
         INewsLetterService Newsletter { get; }
         INotificationService Notification { get; }
